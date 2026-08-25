@@ -12,7 +12,9 @@ class Dropdown(BaseComponent):
     def build_component(self, entity_id, model):
         options = []
         for text, value in self.component_data(entity_id, model):
-            option = Option(text, value=value, selected="selected" if str(value) == str(entity_id) else "")
+            # Use True/False for boolean selected attribute instead of string
+            should_be_selected = str(value) == str(entity_id)
+            option = Option(text, value=value, selected=should_be_selected)
             options.append(option)
 
 

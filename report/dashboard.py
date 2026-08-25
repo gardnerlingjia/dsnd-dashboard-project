@@ -309,8 +309,12 @@ def update_dropdown(r):
 async def update_data(r):
     from fasthtml.common import RedirectResponse
     data = await r.form()
-    profile_type = data._dict['profile_type']
-    id = data._dict['user-selection']
+    profile_type = data._dict.get('profile_type', 'Employee')
+    id = data._dict.get('user-selection', '1')
+    
+    # Debug logging
+    print(f"DEBUG /update_data - profile_type: {profile_type}, id: {id}, all_data: {dict(data._dict)}")
+    
     if profile_type == 'Employee':
         return RedirectResponse(f"/employee/{id}", status_code=303)
     elif profile_type == 'Team':
