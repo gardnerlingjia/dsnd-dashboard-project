@@ -270,11 +270,7 @@ def home():
 # to a string datatype
 @app.get('/employee/{id:int}')
 def employee(id: int):
-
-    # Call the initialized report
-    # pass the ID and an instance
-    # of the Employee SQL class as arguments
-    # Return the result
+    print(f"DEBUG /employee route - id: {id}, type: {type(id)}")
     return report(id, Employee())
 
 # Create a route for a get request
@@ -286,11 +282,7 @@ def employee(id: int):
 # to a string datatype
 @app.get('/team/{id:int}')
 def team(id: int):
-
-    # Call the initialized report
-    # pass the id and an instance
-    # of the Team SQL class as arguments
-    # Return the result
+    print(f"DEBUG /team route - id: {id}, type: {type(id)}")
     return report(id, Team())
 
 
@@ -298,7 +290,8 @@ def team(id: int):
 @app.get('/update_dropdown{r}')
 def update_dropdown(r):
     dropdown = DashboardFilters.children[1]
-    profile_type = r.query_params['profile_type']
+    profile_type = r.query_params.get('profile_type', 'Employee')
+    print(f"DEBUG /update_dropdown - profile_type: {profile_type}, query_params: {dict(r.query_params)}")
     if profile_type == 'Team':
         return dropdown(1, Team())
     elif profile_type == 'Employee':
