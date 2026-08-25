@@ -298,11 +298,11 @@ def team(id: int):
 @app.get('/update_dropdown{r}')
 def update_dropdown(r):
     dropdown = DashboardFilters.children[1]
-    print('PARAM', r.query_params['profile_type'])
-    if r.query_params['profile_type'] == 'Team':
-        return dropdown(None, Team())
-    elif r.query_params['profile_type'] == 'Employee':
-        return dropdown(None, Employee())
+    profile_type = r.query_params['profile_type']
+    if profile_type == 'Team':
+        return dropdown(1, Team())
+    elif profile_type == 'Employee':
+        return dropdown(1, Employee())
 
 
 @app.post('/update_data')
