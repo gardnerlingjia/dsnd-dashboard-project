@@ -268,8 +268,8 @@ def home():
 # an ID of `2`. 
 # parameterize the employee ID 
 # to a string datatype
-@app.get('/employee/{id}')
-def employee(id):
+@app.get('/employee/{id:int}')
+def employee(id: int):
 
     # Call the initialized report
     # pass the ID and an instance
@@ -284,8 +284,8 @@ def employee(id):
 # an ID of `2`. 
 # parameterize the team ID 
 # to a string datatype
-@app.get('/team/{id}')
-def team(id):
+@app.get('/team/{id:int}')
+def team(id: int):
 
     # Call the initialized report
     # pass the id and an instance
@@ -318,4 +318,4 @@ async def update_data(r):
     
 
 
-serve()
+serve(host='127.0.0.1', port=8000, reload=False)
