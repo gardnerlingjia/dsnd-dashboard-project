@@ -4,6 +4,7 @@ from .query_base import QueryBase
 # Import dependencies for sql execution
 from .sql_execution import query
 
+
 # Create a subclass of QueryBase
 # called  `Team`
 class Team(QueryBase):
@@ -11,7 +12,6 @@ class Team(QueryBase):
     # Set the class attribute `name`
     # to the string "team"
     name = "team"
-
 
     # Define a `names` method
     # that receives no arguments
@@ -30,7 +30,6 @@ class Team(QueryBase):
             ORDER BY team_id
         """
 
-
     # Define a `username` method
     # that receives an ID argument
     # This method should return
@@ -48,7 +47,6 @@ class Team(QueryBase):
             FROM team
             WHERE team_id = {id}
         """
-
 
     # Below is method with an SQL query
     # This SQL query generates the data needed for

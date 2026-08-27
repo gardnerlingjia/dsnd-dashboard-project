@@ -5,6 +5,7 @@ from .query_base import QueryBase
 # from the `sql_execution` module
 from .sql_execution import query
 
+
 # Define a subclass of QueryBase
 # called Employee
 class Employee(QueryBase):
@@ -12,7 +13,6 @@ class Employee(QueryBase):
     # Set the class attribute `name`
     # to the string "employee"
     name = "employee"
-
 
     # Define a method called `names`
     # that receives no arguments
@@ -33,7 +33,6 @@ class Employee(QueryBase):
             FROM employee
             ORDER BY employee_id
         """
-    
 
     # Define a method called `username`
     # that receives an `id` argument
